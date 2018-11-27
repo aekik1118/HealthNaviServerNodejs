@@ -20,6 +20,12 @@ io.on('connection', function(socket) {
     io.emit('checkOut', "Out");
   });
 
+  socket.on('reservation', function(obj){
+    console.log("OnReservation");
+    console.log(obj);
+    io.emit('checkOut', "Out");
+  });
+
 });
 
 //서버를 시작한다.

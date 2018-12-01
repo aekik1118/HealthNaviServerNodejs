@@ -7,6 +7,7 @@ var FitnessEquipments = [0,0,0,0,0,0];
 
 io.on('connection', function(socket) {
   console.log("user connect");
+  io.emit('checkOn', FitnessEquipments[0]);
 
   socket.on('checkIn', function(){
     console.log("checkIn");

@@ -7,7 +7,6 @@ var FitnessEquipments = [0,0,0,0,0,0];
 
 io.on('connection', function(socket) {
   console.log("user connect");
-  io.emit('checkOn', FitnessEquipments[0]);
 
   socket.on('checkIn', function(){
     console.log("checkIn");
@@ -19,6 +18,10 @@ io.on('connection', function(socket) {
   socket.on('checkOut', function(){
     console.log("checkOut");
     io.emit('checkOut', "Out");
+  });
+
+  socket.on('onResume', function(){
+    io.emit('checkOn', FitnessEquipments[0]);
   });
 
   socket.on('reservation', function(obj){
